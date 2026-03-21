@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<meta name="format-detection" content="telephone=no">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<!-- WeChat / Open Graph 分享卡片 -->
+<meta property="og:title" content="丝玫瑰® 销售常见问答手册">
+<meta property="og:description" content="PEG交联透明质酸钠凝胶 · 销售FAQ工具手册 · 内部培训资料">
+<meta property="og:type" content="article">
+<title>丝玫瑰® 销售常见问答手册</title>
+<!-- 国内可访问字体：使用字节跳动 CDN 的思源字体 -->
+<link rel="preconnect" href="https://lf-cdn.volccdn.com" crossorigin>
+<style>
+@font-face {
+  font-family: 'Noto Serif SC';
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  src: local('Noto Serif SC'), local('Source Han Serif SC'), local('Songti SC');
+}
+@font-face {
+  font-family: 'Noto Sans SC';
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  src: local('Noto Sans SC'), local('Source Han Sans SC'), local('PingFang SC');
+}
+
+:root {
+  --color-main: #7f0f1c;
+  --color-pageBg: #f6f1f2;
+  --color-text: #404040;
+  --color-heading: #1e1a19;
+  --color-subtitle: #808080;
+  --color-accent: #7f0f1c;
+  --color-highlight: #1e1a19;
+  --color-border: #c7b9a8;
+  --color-cardBg: #cbbbc2;
+  --color-cardBg2: #e9e2e5;
+  --color-bg: #ede8e1;
+  --color-muted: #6c7889;
+  --color-secondary: #a09894;
+  --font-serif: 'Noto Serif SC', 'Songti SC', serif;
+  --font-sans: 'Noto Sans SC', 'PingFang SC', sans-serif;
+}
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-sans);
+  background: var(--color-pageBg);
+  color: var(--color-text);
+  line-height: 1.8;
+  font-size: 15px;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Print / PDF styles ── */
+@media print {
+  body { background: #fff; font-size: 11pt; line-height: 1.6; }
+  .no-print { display: none !important; }
+  .cover-section { page-break-after: always; min-height: auto; padding: 80pt 0; }
+  .toc-section { page-break-after: always; }
+  .faq-section { page-break-before: always; }
+  .section-card { break-inside: avoid; }
+  .qa-block { break-inside: avoid; }
+  .back-to-top, .pdf-btn, .nav-bar { display: none !important; }
+  a { color: var(--color-text) !important; text-decoration: none !important; }
+  .toc-question-link { color: var(--color-muted) !important; }
+  .toc-question-link::after { content: " → " attr(data-qnum); font-size: 9pt; color: var(--color-secondary); }
+}
+
+/* ── Navigation Bar ── */
+.nav-bar {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: rgba(246,241,242,0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--color-border);
+  padding: 0 32px;
+  height: 56px;
+  display: flex; align-items: center; justify-content: space-between;
+  transition: transform 0.3s ease;
+}
+.nav-bar.hidden { transform: translateY(-100%); }
+.nav-brand {
+  font-family: var(--font-serif);
+  font-size: 16px; font-weight: 600;
+  color: var(--color-main);
+  letter-spacing: 1px;
+}
+.nav-brand span { color: var(--color-secondary); font-weight: 400; font-size: 13px; margin-left: 8px; }
+.nav-actions { display: flex; gap: 12px; align-items: center; }
+
+.pdf-btn {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 8px 18px;
+  background: var(--color-main);
+  color: #fff; border: none; border-radius: 6px;
+  font-size: 13px; font-family: var(--font-sans);
+  cursor: pointer; transition: all 0.2s;
+}
+.pdf-btn:hover { background: #5a0a14; transform: translateY(-1px); box-shadow: 0 4px 12px rgba(127,15,28,0.25); }
+.pdf-btn svg { width: 16px; height: 16px; }
+
+/* ── Cover Section ── */
+.cover-section {
+  min-height: 100vh;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  padding: 120px 32px 80px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.cover-section::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+  background: radial-gradient(ellipse at 30% 20%, rgba(127,15,28,0.04) 0%, transparent 60%),
+              radial-gradient(ellipse at 70% 80%, rgba(203,187,194,0.15) 0%, transparent 50%);
+  pointer-events: none;
+}
+.cover-decoration {
+  position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
+  width: 500px; height: 500px;
+  border: 1px solid rgba(199,185,168,0.25);
+  border-radius: 50%;
+  pointer-events: none;
+}
+.cover-decoration::after {
+  content: ''; position: absolute; top: 40px; left: 40px; right: 40px; bottom: 40px;
+  border: 1px solid rgba(199,185,168,0.15);
+  border-radius: 50%;
+}
+.cover-reg {
+  font-size: 12px; color: var(--color-secondary); letter-spacing: 3px;
+  margin-bottom: 32px; position: relative;
+}
+.cover-brand {
+  font-family: var(--font-serif);
+  font-size: clamp(36px, 5vw, 56px);
+  font-weight: 700; color: var(--color-main);
+  letter-spacing: 4px; margin-bottom: 8px;
+  position: relative;
+}
+.cover-sub {
+  font-size: 16px; color: var(--color-subtitle);
+  letter-spacing: 2px; margin-bottom: 48px;
+  position: relative;
+}
+.cover-title {
+  font-family: var(--font-serif);
+  font-size: clamp(22px, 3vw, 32px);
+  font-weight: 600; color: var(--color-heading);
+  letter-spacing: 2px; margin-bottom: 12px;
+  position: relative;
+}
+.cover-en {
+  font-size: 14px; color: var(--color-secondary);
+  font-style: italic; letter-spacing: 1px;
+  margin-bottom: 56px; position: relative;
+}
+.cover-line {
+  width: 60px; height: 2px;
+  background: var(--color-main);
+  margin: 0 auto 40px; position: relative;
+}
+.cover-meta {
+  font-size: 13px; color: var(--color-secondary);
+  position: relative;
+}
+.cover-meta span { margin: 0 16px; }
+.cover-badge {
+  display: inline-block;
+  padding: 6px 20px;
+  border: 1px solid var(--color-main);
+  color: var(--color-main);
+  font-size: 12px; letter-spacing: 2px;
+  margin-top: 24px; position: relative;
+}
+
+/* ── Container ── */
+.container {
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+/* ── TOC Section ── */
+.toc-section {
+  padding: 80px 0 60px;
+}
+.toc-header {
+  text-align: center;
+  margin-bottom: 56px;
+}
+.toc-header h2 {
+  font-family: var(--font-serif);
+  font-size: 28px; font-weight: 600;
+  color: var(--color-heading);
+  letter-spacing: 2px;
+  margin-bottom: 8px;
+}
+.toc-header p {
+  font-size: 14px; color: var(--color-subtitle);
+}
+
+/* ── Section Cards in TOC ── */
+.toc-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  margin-bottom: 40px;
+}
+@media (max-width: 680px) { .toc-grid { grid-template-columns: 1fr; } }
+
+.section-card {
+  background: var(--color-cardBg2);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  padding: 28px 24px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  position: relative;
+  overflow: hidden;
+}
+.section-card::before {
+  content: '';
+  position: absolute; top: 0; left: 0; width: 4px; height: 100%;
+  background: var(--color-main);
+  opacity: 0; transition: opacity 0.25s;
+}
+.section-card:hover {
+  background: var(--color-cardBg);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(30,26,25,0.08);
+}
+.section-card:hover::before { opacity: 1; }
+.section-card-num {
+  font-family: var(--font-serif);
+  font-size: 13px; font-weight: 600;
+  color: var(--color-main);
+  letter-spacing: 2px;
+  margin-bottom: 8px;
+}
+.section-card-title {
+  font-family: var(--font-serif);
+  font-size: 18px; font-weight: 600;
+  color: var(--color-heading);
+  margin-bottom: 6px;
+  line-height: 1.4;
+}
+.section-card-sub {
+  font-size: 13px; color: var(--color-muted);
+  margin-bottom: 16px;
+}
+.section-card-questions {
+  max-height: 0; overflow: hidden;
+  transition: max-height 0.4s ease, opacity 0.3s;
+  opacity: 0;
+}
+.section-card.expanded .section-card-questions {
+  max-height: 600px;
+  opacity: 1;
+}
+.section-card-questions ul {
+  list-style: none;
+  padding-top: 12px;
+  border-top: 1px solid var(--color-border);
+}
+.section-card-questions li { margin-bottom: 6px; }
+.toc-question-link {
+  display: block;
+  padding: 8px 12px;
+  font-size: 13.5px;
+  color: var(--color-text);
+  text-decoration: none;
+  border-radius: 6px;
+  transition: all 0.15s;
+  line-height: 1.5;
+}
+.toc-question-link:hover {
+  background: rgba(127,15,28,0.06);
+  color: var(--color-main);
+}
+.toc-question-link .q-tag {
+  display: inline-block;
+  font-size: 11px; font-weight: 600;
+  color: var(--color-main);
+  background: rgba(127,15,28,0.08);
+  padding: 1px 7px;
+  border-radius: 3px;
+  margin-right: 8px;
+  font-family: var(--font-serif);
+}
+.star-tag {
+  color: var(--color-main);
+  font-size: 14px;
+  margin-right: 4px;
+}
+.section-card-toggle {
+  display: inline-flex; align-items: center; gap: 4px;
+  font-size: 12px; color: var(--color-main);
+  font-weight: 500;
+}
+.section-card-toggle svg {
+  width: 14px; height: 14px;
+  transition: transform 0.3s;
+}
+.section-card.expanded .section-card-toggle svg {
+  transform: rotate(180deg);
+}
+.section-card-count {
+  display: inline-block;
+  font-size: 11px; color: var(--color-secondary);
+  background: var(--color-bg);
+  padding: 2px 8px; border-radius: 10px;
+  margin-left: 8px;
+}
+
+/* ── FAQContent Sections ── */
+.faq-section {
+  padding: 64px 0 40px;
+}
+.faq-section-header {
+  margin-bottom: 40px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid var(--color-main);
+}
+.faq-section-num {
+  font-size: 12px; font-weight: 600;
+  color: var(--color-main);
+  letter-spacing: 3px;
+  margin-bottom: 8px;
+}
+.faq-section-title {
+  font-family: var(--font-serif);
+  font-size: 26px; font-weight: 600;
+  color: var(--color-heading);
+  margin-bottom: 6px;
+}
+.faq-section-sub {
+  font-size: 14px; color: var(--color-subtitle);
+}
+
+/* ── Q &A Block ── */
+.qa-block {
+  margin-bottom: 36px;
+}
+.qa-question {
+  display: flex; align-items: flex-start; gap: 12px;
+  background: var(--color-cardBg2);
+  border-left: 4px solid var(--color-main);
+  padding: 18px 22px;
+  border-radius: 0 10px 10px 0;
+  margin-bottom: 20px;
+}
+.qa-question-tag {
+  flex-shrink: 0;
+  font-family: var(--font-serif);
+  font-size: 12px; font-weight: 700;
+  color: #fff;
+  background: var(--color-main);
+  padding: 3px 10px;
+  border-radius: 4px;
+  margin-top: 2px;
+}
+.qa-question-text {
+  font-family: var(--font-serif);
+  font-size: 17px; font-weight: 600;
+  color: var(--color-heading);
+  line-height: 1.6;
+}
+
+.qa-answer {
+  padding: 0 22px 0 52px;
+  color: var(--color-text);
+  font-size: 14.5px;
+  line-height: 1.9;
+}
+.qa-answer p { margin-bottom: 14px; }
+.qa-answer p:last-child { margin-bottom: 0; }
+.qa-answer strong { color: var(--color-highlight); font-weight: 600; }
+.qa-answer .point-marker {
+  color: var(--color-main);
+  font-weight: 600;
+}
+.qa-answer .tip-box {
+  background: var(--color-bg);
+  border-left: 3px solid var(--color-border);
+  padding: 14px 18px;
+  border-radius: 0 8px 8px 0;
+  margin: 14px 0;
+  font-size: 14px;
+  color: var(--color-muted);
+}
+.qa-answer .talk-box {
+  background: rgba(127,15,28,0.04);
+  border: 1px solid rgba(127,15,28,0.12);
+  padding: 14px 18px;
+  border-radius: 8px;
+  margin: 14px 0;
+  font-size: 14px;
+  font-style: italic;
+  color: var(--color-heading);
+}
+
+.qa-divider {
+  height: 1px;
+  background: var(--color-border);
+  margin: 36px 0;
+  opacity: 0.6;
+}
+
+/* ── Appendix Table ── */
+.appendix-section { padding: 64px 0 80px; }
+.spec-table {
+  width: 100%; border-collapse: collapse;
+  margin: 24px 0;
+  font-size: 14px;
+}
+.spec-table th {
+  background: var(--color-heading);
+  color: #fff;
+  padding: 14px 16px;
+  text-align: center;
+  font-weight: 500;
+  font-size: 14px;
+}
+.spec-table th:first-child { text-align: left; border-radius: 8px 0 0 0; }
+.spec-table th:last-child { border-radius: 0 8px 0 0; }
+.spec-table td {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--color-border);
+  text-align: center;
+}
+.spec-table td:first-child { text-align: left; font-weight: 500; color: var(--color-heading); }
+.spec-table tr:nth-child(odd) td { background: #fff !important; }
+.spec-table tr:nth-child(even) td { background: var(--color-cardBg2) !important; }
+.spec-table tr:last-child td:first-child { border-radius: 0 0 0 8px; }
+.spec-table tr:last-child td:last-child { border-radius: 0 0 8px 0; }
+
+/* ── Footer ── */
+.footer-section {
+  text-align: center;
+  padding: 40px 0 60px;
+  border-top: 1px solid var(--color-border);
+}
+.footer-disclaimer {
+  font-size: 12px; color: var(--color-secondary);
+  max-width: 640px; margin: 0 auto 20px;
+  line-height: 1.8;
+}
+.footer-brand {
+  font-family: var(--font-serif);
+  font-size: 15px; color: var(--color-main);
+  font-style: italic; letter-spacing: 1px;
+}
+
+/* ── Back to Top ── */
+.back-to-top {
+  position: fixed; bottom: 32px; right: 32px;
+  width: 44px; height: 44px;
+  background: var(--color-main);
+  color: #fff; border: none; border-radius: 50%;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0; transform: translateY(20px);
+  transition: all 0.3s;
+  box-shadow: 0 4px 16px rgba(127,15,28,0.3);
+  z-index: 90;
+}
+.back-to-top.visible { opacity: 1; transform: translateY(0); }
+.back-to-top:hover { background: #5a0a14; transform: translateY(-2px); }
+.back-to-top svg { width: 20px; height: 20px; }
+
+/* ── Section nav link ── */
+.section-back-link {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 13px; color: var(--color-main);
+  text-decoration: none;
+  margin-bottom: 24px;
+  transition: opacity 0.2s;
+}
+.section-back-link:hover { opacity: 0.7; }
+.section-back-link svg { width: 14px; height: 14px; }
+
+/* ── WeChat Browser Optimizations ── */
+/* 适配 iPhone 安全区域 */
+body { padding-bottom: env(safe-area-inset-bottom); }
+.cover-section { padding-top: max(120px, calc(56px + env(safe-area-inset-top))); }
+.nav-bar { padding-top: env(safe-area-inset-top); height: calc(56px + env(safe-area-inset-top)); }
+
+/* 微信内置浏览器触摸优化 */
+.section-card { -webkit-tap-highlight-color: transparent; }
+.toc-question-link { -webkit-tap-highlight-color: transparent; }
+a, button { -webkit-tap-highlight-color: transparent; touch-action: manipulation; }
+
+/* 防止微信浏览器中文字大小自动调整 */
+body { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+
+/* 微信浏览器中更好的滚动体验 */
+html { -webkit-overflow-scrolling: touch; }
+
+/* 移动端答案区域左侧缩进优化 */
+@media (max-width: 680px) {
+  .qa-answer { padding: 0 16px 0 16px; }
+  .qa-question { padding: 14px 16px; }
+  .container { padding: 0 20px; }
+  .nav-bar { padding-left: 16px; padding-right: 16px; }
+  .cover-section { padding-left: 20px; padding-right: 20px; }
+  .back-to-top { bottom: max(32px, calc(16px + env(safe-area-inset-bottom))); right: 16px; }
+}
+</style>
+</head>
+<body>
+
+<!-- Navigation Bar -->
+<nav class="nav-bar no-print" id="navbar">
+  <div class="nav-brand">丝玫瑰<span>FAQ 手册</span></div>
+  <div class="nav-actions">
+    <a href="#toc" class="section-back-link" style="margin:0" onclick="event.preventDefault();document.getElementById('toc').scrollIntoView({behavior:'smooth'})">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l4-4 4 4"/><path d="M7 5v14"/><path d="M11 18h10"/><path d="M11 14h7"/><path d="M11 10h4"/></svg>
+      目录
+    </a>
+    <button class="pdf-btn" onclick="handleSavePDF()">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9V2h12v7"/><path d="M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+      保存 PDF
+    </button>
+  </div>
+</nav>
+
+<!-- Cover -->
+<section class="cover-section" id="cover">
+  <div class="cover-decoration"></div>
+  <div class="cover-reg">国械注准20253130825</div>
+  <div class="cover-brand">丝玫瑰® SILKROSE</div>
+  <div class="cover-sub">PEG交联透明质酸钠凝胶</div>
+  <div class="cover-line"></div>
+  <div class="cover-title">销售常见问题手册</div>
+  <div class="cover-en">FAQHandbook for Sales</div>
+  <div class="cover-meta">
+    <span>2026年3月</span>
+  </div>
+  <div class="cover-badge">内部资料 · 仅供销售培训使用</div>
+</section>
+
+<!-- TOC -->
+<section class="toc-section" id="toc">
+  <div class="container">
+    <div class="toc-header">
+      <h2>目 录</h2>
+      <p>点击板块展开问题列表 · 点击问题直达答案</p>
+    </div>
+    <div class="toc-grid" id="tocGrid">
+      <!-- Filled by JS -->
+    </div>
+    <div style="text-align:center; margin-top:12px;">
+      <p style="font-size:13px; color:var(--color-secondary);">标注 <span style="color:var(--color-main); font-weight:600;">★</span> 为销售团队反馈的高频痛点问题</p>
+    </div>
+  </div>
+</section>
+
+<!-- FAQContent -->
+<div id="faqContent" class="container">
+  <!-- Filled by JS -->
+</div>
+
+<!-- Appendix -->
+<section class="appendix-section" id="appendix">
+  <div class="container">
+    <a href="#toc" class="section-back-link no-print" onclick="event.preventDefault();document.getElementById('toc').scrollIntoView({behavior:'smooth'})">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+      返回目录
+    </a>
+    <div class="faq-section-header">
+      <div class="faq-section-num">APPENDIX</div>
+      <div class="faq-section-title">附录：关键产品参数速查</div>
+    </div>
+    <table class="spec-table">
+      <thead>
+        <tr><th></th><th>SR-1 · 修饰型</th><th>SR-2 · 塑形型</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>HA 浓度</td><td colspan="2" style="text-align:center">20 mg/mL</td></tr>
+        <tr><td>弹性模量 G'</td><td>193 Pa</td><td>601 Pa</td></tr>
+        <tr><td>粘性模量 G"</td><td>24 Pa</td><td>49 Pa</td></tr>
+        <tr><td>剪切黏度</td><td>1,980 mPa·s</td><td>1,700 mPa·s</td></tr>
+        <tr><td>凝胶颗粒</td><td colspan="2" style="text-align:center">单相凝胶</td></tr>
+        <tr><td>渗透压</td><td colspan="2" style="text-align:center">270-350 mOsmol/kg（等渗设计）</td></tr>
+        <tr><td>注射层次</td><td>真皮中层</td><td>真皮中-深层</td></tr>
+        <tr><td>维持时间</td><td>9-12 个月</td><td>&gt;12 个月</td></tr>
+        <tr><td>注册证号</td><td colspan="2" style="text-align:center">国械注准 20253130825</td></tr>
+        <tr><td>获批适应症</td><td colspan="2" style="text-align:center">真皮组织中层至深层注射以纠正中重度鼻唇沟皱纹</td></tr>
+        <tr><td>建议零售价</td><td>¥6,980/mL</td><td>¥7,980/mL</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- Footer -->
+<section class="footer-section">
+  <div class="container">
+    <div class="footer-disclaimer">
+      本手册为内部培训资料，不得对外发布或作为官方宣传材料使用。产品安全性和有效性信息以NMPA批准的产品说明书为准。临床使用方案由医生根据专业判断决定。如有医学学术方面的深度问题，请联系公司医学事务部门。
+    </div>
+    <div class="footer-brand">— 丝玫瑰® · 更少修饰，美更纯粹 —</div>
+    <div style="margin-top:20px; font-size:11px; color:var(--color-secondary); letter-spacing:1px;">
+      AESTRAT Consulting · 研美咨询 出品
+    </div>
+  </div>
+</section>
+
+<!-- Back to Top -->
+<button class="back-to-top no-print" id="backToTop" onclick="document.getElementById('toc').scrollIntoView({behavior:'smooth'})">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"/></svg>
+</button>
+
+<script>
+// ── FAQData ──
+const faqData = [
+  {
+    id: "s1", num: "01", title: "产品基础认知", subtitle: "建立对产品的基本理解",
+    items: [
+      {
+        id: "q1-1", star: false,
+        q: "丝玫瑰是什么产品？和市面上的玻尿酸有什么区别？",
+        a: `<p>丝玫瑰是国内首款也是目前唯一一款采用<strong>PEG（聚乙二醇）作为交联剂</strong>的注射用交联透明质酸钠凝胶。</p>
+<p>这个材料已经在全球药物疫苗领域使用了30多年。常见的玻尿酸分子技术区别不大，已经非常成熟，丝玫瑰的本质区别不在于透明质酸本身，而在于「交联剂和交联技术」——把HA分子连接起来的那个「连接桥」换了。PEG连接桥更长、更柔、生物相容性更好，因此在临床层面有明显的优势差异，为临床提供更有针对性的使用场景。</p>
+<div class="talk-box">一句话总结：丝玫瑰不是「又一款玻尿酸」，而是「更先进材料技术的玻尿酸」。</div>`
+      },
+      {
+        id: "q1-2", star: false,
+        q: "PEG交联剂安全吗？之前没听说过这个技术。",
+        a: `<p>PEG（聚乙二醇）本身是医药行业中肿瘤化疗疫苗产品使用最广泛的生物材料之一，在药物递送、蛋白修饰等领域已有超过30年的安全使用历史。全球有超过30种获FDA批准的PEG化药物正在临床使用。</p>
+<p>在玻尿酸交联领域，PEG交联HA在海外已有多年临床应用积累，发表了大量同行评审研究。在<strong>大剂量蓄积毒性，代谢完整度，免疫静默，低促炎反应方面</strong>都具有明显优势。</p>
+<p>丝玫瑰作为中国首款PEG交联HA，已经通过NMPA全套审评审批流程，获得三类医疗器械注册证，安全性和有效性经过严格验证。</p>`
+      }
+    ]
+  },
+  {
+    id: "s2", num: "02", title: "技术优势与临床价值", subtitle: "PEG材料本身的优势，以及如何转化为临床语言",
+    items: [
+      {
+        id: "q2-1", star: false,
+        q: "PEG交联技术的核心优势是什么？",
+        a: `<p>PEG是更先进一代的高分子柔性交联技术，核心优势来自材料本身的特性，抓住四个关键词：</p>
+<p><span class="point-marker">① 免疫友好：</span>PEG是公认的高生物相容性材料，免疫原性极低。注射后周围组织的免疫应答非常温和——用学术的话说叫「免疫静默」。已发表的临床研究中实现了零肉芽肿、零结节的记录。</p>
+<p><span class="point-marker">② 热稳定：</span>PEG长链形成的凝胶网络结构更均匀、更耐热。在模拟射频/HIFU温度（55°C+）下，热变形率约4.3%，远低于传统产品的29.9%。这意味着填充后可以和光电项目兼容，甚至<strong>同日完成</strong>。</p>
+<p><span class="point-marker">③ 代谢干净：</span>PEG交联剂在体内酶解后72小时可完全代谢，不蓄积。交联剂占比仅2.8%-6.2%，远低于传统BDDE产品。</p>
+<p><span class="point-marker">④ 低溶胀（即俗称"不馒化"）：</span>PEG交联HA的溶胀比仅9-14（传统产品约40），在预交联阶段已接近平衡溶胀状态。临床表现为<strong>注射后不带长期水肿、不膨胀、不发红</strong>——所见即所得，效果可预期。这对精准注射和患者满意度非常关键。</p>
+<div class="tip-box"><strong>表达原则：</strong>讲的是PEG材料本身为什么先进，而不是去说其他产品不好。所有获批上市的玻尿酸都是安全产品，我们强调的是材料技术的代际升级。</div>`
+      },
+      {
+        id: "q2-2", star: true,
+        q: "医生觉得「现有产品也够安全了」，丝玫瑰的安全优势怎么讲？",
+        a: `<p>医生说得没错，合规上市的产品在常规使用中确实是安全的。<strong>不要否认这一点。</strong></p>
+<p>丝玫瑰的安全叙事不是「别人不安全」，而是「我们在安全这件事上做到了更极致」，并且这种极致<strong>指向了具体的临床受益人群</strong>。</p>
+<p><span class="point-marker">快速过渡路径（不要纠结停留在实验室数据上）：</span></p>
+<p>材料层的高安全余量 → 注射后极低的免疫刺激 → 临床零肉芽肿记录 → <strong>这让丝玫瑰特别适合免疫敏感型患者和有并发症顾虑的患者群体</strong>。</p>
+<p>这不是「更安全一点点」，是打开了一个特定的<strong>临床使用场景</strong>——那些既往有过敏史、自身免疫背景、或者对安全性有极高要求的品质客群，终于有了一个材料学上更匹配的选择。</p>
+<div class="talk-box">建议话术：「所有获批产品都是安全的，这没问题。但丝玫瑰的PEG材料在免疫友好性上确实走得更远——对于您接诊的那些对安全特别敏感的高端客户，或者既往有过免疫相关顾虑的患者，这个产品能给您多一个更安心的选择。」</div>`
+      },
+      {
+        id: "q2-3", star: true,
+        q: "什么叫「可以和光电同日联合」？这对机构意味着什么？",
+        a: `<p>目前在中国，联合治疗的需求已经达到50%以上。很多消费者需要填充类产品和和光电能量设备联合使用，行业通行做法是先光电后填充，间隔通常建议四周以上。</p>
+<p><strong>丝玫瑰的差异在于：可以同一天完成。</strong></p>
+<p><span class="point-marker">为什么丝玫瑰做得到？</span>PEG长链交联形成的凝胶网络热稳定性极强——在模拟射频/HIFU温度（55°C以上+机械应力）下，热变形率仅约4.3%，传统产品约29.9%，差异约7倍。已有临床研究验证了PEG-HA在能量设备作用后凝胶仍保持完整。这意味着先做光电紧致提升，随后注射丝玫瑰填充塑形，不需要等四周，一次到位、一次恢复。</p>
+<p><span class="point-marker">对机构的直接价值：</span>同日联合 = 单次客单价显著提升 + 降低患者分次预约的流失风险。对于有光电设备的机构来说，丝玫瑰是天然的联合治疗搭档，帮机构把光电和填充两条产品线做成一个完整的抗衰方案。</p>`
+      },
+      {
+        id: "q2-4", star: false,
+        q: "客户说「等大品牌也出PEG产品了我再用」怎么应对？",
+        a: `<p>三类医疗器械从立项到拿证通常需要5-8年。丝玫瑰已经走完全部流程，是目前唯一通过NMPA审评要求的PEG交联玻尿酸。其他品牌从启动到获批，不是一两年的事。现在入局的机构有至少3-5年的先发窗口。</p>
+<p>不需要大规模切换，先小批量引入积累经验。<strong>当别人刚入场的时候，您已经是掌握最先进交联技术的玻尿酸专家了</strong>——这代表您是一位非常在意患者安全理念的医生，您的选品也因此非常严谨和用心。</p>
+<p>丝玫瑰非常愿意和有前瞻眼光的专家医生深度合作，共同发布更多的中国临床数据和真实案例。我们会支持这样的专家跟品牌一起做学术合作和学术推广，帮助中国医生在这个新技术领域建立更高的学术地位和行业影响力。</p>
+<div class="talk-box">「您不需要all-in，先小批量试用积累经验。等别人入场的时候，您已经是这个技术方向的专家了。而且我们非常愿意支持您做学术合作，一起把中国自己的PEG-HA临床数据做出来。」</div>`
+      },
+      {
+        id: "q2-5", star: false,
+        q: "「零肉芽肿」这个说法能对外讲吗？话术边界在哪？",
+        a: `<p>可以讲，但<strong>表达方式很重要</strong>。</p>
+<p><span class="point-marker">✅ 正确表述：</span>「在目前已发表的临床研究中，PEG交联HA尚未报告肉芽肿和结节。」</p>
+<p><span class="point-marker">❌ 不要说：</span>「永远不会出现肉芽肿」——任何医疗产品都不能做零风险的绝对承诺。</p>`
+      }
+    ]
+  },
+  {
+    id: "s3", num: "03", title: "定价与价值", subtitle: "不是价格问题，是价值结构问题",
+    items: [
+      {
+        id: "q3-1", star: true,
+        q: "客户觉得贵怎么办？",
+        a: `<p>这是销售遇到最多的问题。<strong>不要陷入单纯的价格比较</strong>——每个品牌的细分市场、性能表现、品牌力、机构支持和利润空间都不同，不能只看一个价格数字。</p>
+<p>从以下几个维度拆解丝玫瑰的价值结构：</p>
+<p><span class="point-marker">① 力学性能：</span>SR-1的弹性模量G'=193Pa，对标Juvéderm Ultra~Ultra Plus区间；SR-2的G'=601Pa，对标Juvéderm Voluma~Volux区间——这是乔雅登产品线中支撑力最强的两款。同时两款产品的弹性比（G'/G"）分别达到8.0和12.3，与乔雅登Vycross平台高度接近，意味着凝胶以弹性为主导，注射后形变回弹好、不易扩散位移。<strong>力学性能对标国际一线高端产品，产品力站得住这个价格段。</strong></p>
+<p><span class="point-marker">② 机构利润空间：</span>这是最实际的。丝玫瑰给到机构的<strong>日常耗占比仅10-12%</strong>（SR-1约10%，SR-2约12%），这在市场上非常有竞争力。意味着机构有充足的利润空间做灵活运营——即便遇到活动季做价格策略调整，依然能保障健康的利润结构。</p>
+<p><span class="point-marker">③ 价格维护力度：</span>我们有极大的力度和信心进行市场价格维护，确保机构的价格体系稳定。丝玫瑰是小众差异化产品，不是流量品，不会陷入价格战。这一点是很多品牌做不到的。</p>
+<p><span class="point-marker">④ 差异化定位：</span>丝玫瑰不是面向普世大众市场做价格竞争，而是服务<strong>追求极致安全性的品质客群、免疫敏感型患者、以及有联合治疗需求的场景</strong>。这些客群本身消费力不低，对价格的敏感度远低于对效果和安全的敏感度。</p>
+<div class="talk-box">核心话术：「性价比不等于低价。丝玫瑰给到机构的耗占比仅10-12%，利润空间非常健康，价格体系我们也有信心维护。更重要的是，它服务的是对安全有高要求的品质客群——这部分客户本身就是机构的高价值客户。」</div>`
+      },
+      {
+        id: "q3-2", star: false,
+        q: "客户要求更低的折扣或者特殊政策怎么办？",
+        a: `<p>严格按照公司商务政策执行。可以传递的核心信息：</p>
+<p><span class="point-marker">▸</span> 新品牌的价格体系稳定性至关重要——乱价是杀死新品牌最快的方式<br>
+<span class="point-marker">▸</span> 差异化产品的客户不是因为便宜才选你——价格弹性本来就低<br>
+<span class="point-marker">▸</span> 可以谈合作深度，而不是单纯折扣：首批进货量、区域合作、联合学术推广等</p>
+<div class="tip-box"><strong>策略：</strong>把谈判从「价格折扣」引导到「合作模式」上来。丝玫瑰能给的不只是产品，还有运营支持、品牌物料、学术资源。</div>`
+      }
+    ]
+  },
+  {
+    id: "s4", num: "04", title: "目标机构与客户开发", subtitle: "我们要找谁、卖给谁",
+    items: [
+      {
+        id: "q4-1", star: true,
+        q: "丝玫瑰应该优先开发哪些类型的机构？",
+        a: `<p>丝玫瑰的目标客户是<strong>机构</strong>，不是单个医生。我们不在机构内部挑选医生，而是筛选与我们产品定位匹配的机构类型。</p>
+<p><span class="point-marker">优先开发：</span></p>
+<p><strong>A. 专业化、以医生为主导的中高端机构</strong><br>
+这类机构注重技术差异化，可能正在寻找乔雅登的替代品或补充选项。丝玫瑰的力学性能和品质感可以支撑高端定位，利润空间更有吸引力。</p>
+<p><strong>B. 中型机构（尤其是目前在用OEM贴牌玻尿酸的）</strong><br>
+这类机构用OEM产品本身利润不错，但可能在品质和安全性上有隐忧。丝玫瑰能提供<strong>类似OEM的高利润空间（耗占比10-12%）+ 更好的产品品质 + 稳定的市场价格</strong>——升级品质的同时不牺牲利润。</p>
+<div class="tip-box">丝玫瑰是小众差异化产品，不是流量品。集中资源打透匹配度最高的机构，比撒网式推广有效得多。</div>`
+      },
+      {
+        id: "q4-2", star: true,
+        q: "进了机构之后，丝玫瑰应该推给哪些患者？",
+        a: `<p>我们有明确的<strong>四大核心目标人群</strong>，按商业规模和差异强度排列：</p>
+<p><span class="point-marker">A. 安心回归者 ★★★★★</span><br>
+有PLLA/PCL/CaHA注射史，经历过并发症或担心，想回流HA，对材料安全有高要求。<br>
+<strong>核心卖点：零肉芽肿记录 + 溶解酶可逆79-88%</strong></p>
+<p><span class="point-marker">B. 联合治疗者 ★★★★★</span><br>
+定期做光电项目，希望一次到院解决多个问题，追求时效性。<br>
+<strong>核心卖点：45-75°C热稳定 + 光电同日联合 + 后续光电维护无忧</strong></p>
+<p><span class="point-marker">C. 长期注射者 ★★★★</span><br>
+连续注射HA三年以上，机构最高价值客户，开始关注累积化学负担、关注僵化问题。<br>
+<strong>核心卖点：交联剂仅2.8-6.2% + 酶解后72h代谢零蓄积</strong></p>
+<p><span class="point-marker">D. 敏感体质者 ★★★★</span><br>
+既往有过敏史或自身免疫疾病，需要同时确保效果和免疫安全。<br>
+<strong>核心卖点：PEG免疫隐身效应 + 桥本甲状腺炎零不良反应</strong></p>`
+      },
+      {
+        id: "q4-3", star: true,
+        q: "市场声量低，机构没听过这个品牌，怎么推进？",
+        a: `<p><strong>声量低不等于品牌力不行，恰恰相反，这对合作机构其实是好事。</strong></p>
+<p>首先，丝玫瑰背后是键凯科技——全球Top3PEG原材料供应商+科创板上市公司，深耕医用药用PEG超过20年，目前最高级别的PEG技术应用，产品力和合规性都经得起检验。</p>
+<p>其次，市场声量大意味着什么？意味着每家机构都有这个产品，它会成为「流量品」。流量品带来的结果是破价竞争和利润空间的持续压缩——这恰恰是今天很多机构的痛点。</p>
+<p><span class="point-marker">声量低对合作机构的三个实际好处：</span></p>
+<p><span class="point-marker">①</span> <strong>跟你打价格战的人少</strong>——知名度没那么高，市面上竞争性出货就少，终端价格不容易被打穿<br>
+<span class="point-marker">②</span> <strong>利润空间可以切实保障</strong>——您是我们精挑细选的目标客户，我们有力度也有意愿做好价格维护，确保您赚到钱<br>
+<span class="point-marker">③</span> <strong>不会沦为随处可见的流量品</strong>——不用被迫跟别家卷价格，保持差异化定位和品牌质感</p>
+<p>我们在市场上更注重机构利益的维护，没有去广泛铺量做流量设置。<strong>对于合作机构来说，品牌的可控性和利润的确定性，比单纯的知名度更有经营价值。</strong></p>
+<div class="talk-box">「我理解您之前没接触过这个品牌。丝玫瑰确实是2025年刚获批的新产品，但它背后是键凯科技——科创板上市，20年PEG技术积累。声量不大恰恰意味着：不是流量品、不会被破价、跟您打价格战的人少，我们也有信心帮您维护好利润空间。先小批量试用体验一下？」</div>`
+      }
+    ]
+  },
+  {
+    id: "s5", num: "05", title: "合作支持与快速参考", subtitle: "品牌方2026年支持计划 + 30秒产品介绍",
+    items: [
+      {
+        id: "q5-1", star: false,
+        q: "丝玫瑰品牌方在2026年提供哪些支持？",
+        a: `<p>2026年品牌方已准备好的支持体系：</p>
+<p><span class="point-marker">▸ 打版样针支持：</span>「瑰丽女神/瑰丽男神」主题打版活动，用于建立院内信心和制造社交话题<br>
+<span class="point-marker">▸ 销售激励计划：</span>「挚爱·丝玫瑰」激励活动——咨询师/医生每日完成丝玫瑰销售，次日收到品牌定制玫瑰花，持续强化内部品牌心智<br>
+<span class="point-marker">▸ 线上内容矩阵：</span>品牌海报、视频内容、4周声量引爆宣发计划，支持机构社交平台种草<br>
+<span class="point-marker">▸ 俱乐部体系：</span>「Soft Lift·瑰丽提升俱乐部」会员式销售策略，含季度圈层活动，物料和活动费用由品牌方承担<br>
+<span class="point-marker">▸ 90天售后工具包：</span>「Soft Lift好美伴旅」术后关怀体系——21天效果及情绪关怀+30/60/90天复查节点+每日品牌海报推送<br>
+<span class="point-marker">▸ 医学策略材料：</span>完整的产品学术资料包，可供医生间传播和学术交流使用</p>
+<p>具体支持力度根据合作级别和区域情况确定。</p>`
+      },
+      {
+        id: "q5-2", star: false,
+        q: "30秒电梯话术：如何快速介绍丝玫瑰？",
+        a: `<div class="talk-box">「丝玫瑰是国内首款PEG交联的玻尿酸，由全球Top3的PEG材料的上市公司键凯科技出品，PEG是更先进一代的高分子交联材料——免疫友好、耐热可与光电同日联合、代谢干净不蓄积、低溶胀不馒化、所见即所得。力学性能对标乔雅登Vycross系列。临床研究零肉芽肿记录。给到机构的耗占比仅10-12%，利润空间非常健康，我们也有信心做好价格维护。是国家三类医疗器械注册证的合规产品。」</div>
+<p>30秒就讲这些。如果对方有兴趣，再根据对方关心的是安全性、利润、运营支持还是治疗场景人群，有针对性地展开。</p>`
+      }
+    ]
+  }
+];
+
+// ── Render TOC ──
+function renderTOC() {
+  const grid = document.getElementById('tocGrid');
+  grid.innerHTML = faqData.map(sec => {
+    const qList = sec.items.map(item => {
+      const tag = item.id.replace('q','Q ').replace('-','.');
+      const starHTML = item.star ? '<span class="star-tag">★</span>' : '';
+      return `<li><a href="#${item.id}" class="toc-question-link" data-qnum="${tag}"><span class="q-tag">${tag}</span>${starHTML}${item.q}</a></li>`;
+    }).join('');
+    return `
+      <div class="section-card" data-section="${sec.id}" onclick="toggleCard(this)">
+        <div class="section-card-num">SECTION ${sec.num}</div>
+        <div class="section-card-title">${sec.title.replace(/^[一二三四五六七八九十]+、/,'')}</div>
+        <div class="section-card-sub">${sec.subtitle}</div>
+        <div style="display:flex;align-items:center;gap:8px;">
+          <span class="section-card-toggle">
+            <span>展开问题</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+          </span>
+          <span class="section-card-count">${sec.items.length} 题</span>
+        </div>
+        <div class="section-card-questions"><ul>${qList}</ul></div>
+      </div>`;
+  }).join('');
+}
+
+// ── Render FAQContent ──
+function renderFAQ() {
+  const container = document.getElementById('faqContent');
+  container.innerHTML = faqData.map(sec => {
+    const qas = sec.items.map((item, i) => {
+      const tag = item.id.replace('q','Q ').replace('-','.');
+      const divider = i < sec.items.length - 1 ? '<div class="qa-divider"></div>' : '';
+      return `
+        <div class="qa-block" id="${item.id}">
+          <div class="qa-question">
+            <span class="qa-question-tag">${tag}</span>
+            <div class="qa-question-text">${item.star ? '<span class="star-tag">★</span> ' : ''}${item.q}</div>
+          </div>
+          <div class="qa-answer">${item.a}</div>
+        </div>${divider}`;
+    }).join('');
+
+    return `
+      <section class="faq-section" id="${sec.id}">
+        <a href="#toc" class="section-back-link no-print" onclick="event.preventDefault();document.getElementById('toc').scrollIntoView({behavior:'smooth'})">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+          返回目录
+        </a>
+        <div class="faq-section-header">
+          <div class="faq-section-num">SECTION ${sec.num}</div>
+          <div class="faq-section-title">${sec.title}</div>
+          <div class="faq-section-sub">${sec.subtitle}</div>
+        </div>
+        ${qas}
+      </section>`;
+  }).join('');
+}
+
+// ── Toggle section card ──
+function toggleCard(el) {
+  // If clicking a link inside, don't toggle
+  if (event.target.closest('a')) return;
+  el.classList.toggle('expanded');
+  const toggleText = el.querySelector('.section-card-toggle span');
+  toggleText.textContent = el.classList.contains('expanded') ? '收起' : '展开问题';
+}
+
+// ── Back to top visibility ──
+const btt = document.getElementById('backToTop');
+window.addEventListener('scroll', () => {
+  btt.classList.toggle('visible', window.scrollY > 600);
+});
+
+// ── Navbar hide/show on scroll ──
+let lastScroll = 0;
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  const current = window.scrollY;
+  if (current > lastScroll && current > 200) {
+    navbar.classList.add('hidden');
+  } else {
+    navbar.classList.remove('hidden');
+  }
+  lastScroll = current;
+});
+
+// ── Init ──
+renderTOC();
+renderFAQ();
+
+// ── WeChat Environment Detection & PDF Handler ──
+function isWeChat() {
+  return /MicroMessenger/i.test(navigator.userAgent);
+}
+function handleSavePDF() {
+  if (isWeChat()) {
+    // 微信内置浏览器不支持 window.print
+    // 提示用户用浏览器打开
+    const tip = document.createElement('div');
+    tip.style.cssText = 'position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.6);z-index:999;display:flex;align-items:center;justify-content:center;padding:32px;';
+    tip.innerHTML = `<div style="background:#fff;border-radius:16px;padding:32px 24px;max-width:320px;text-align:center;font-family:var(--font-sans);">
+      <div style="font-size:40px;margin-bottom:16px;">⋯</div>
+      <div style="font-size:16px;font-weight:600;color:#1e1a19;margin-bottom:12px;">保存 PDF</div>
+      <div style="font-size:14px;color:#808080;line-height:1.7;margin-bottom:20px;">请点击右上角 <strong style="color:#1e1a19;">⋯</strong> 菜单<br>选择「在浏览器中打开」<br>即可使用打印功能保存为 PDF</div>
+      <button onclick="this.parentElement.parentElement.remove()" style="background:#7f0f1c;color:#fff;border:none;padding:10px 32px;border-radius:8px;font-size:14px;cursor:pointer;">知道了</button>
+    </div>`;
+    document.body.appendChild(tip);
+    tip.addEventListener('click', (e) => { if (e.target === tip) tip.remove(); });
+  } else {
+    window.print();
+  }
+}
+</script>
+</body>
+</html>
